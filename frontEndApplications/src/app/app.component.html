@@ -1,0 +1,6 @@
+
+<input (input) = 'userData.username = $event.target.value' placeholder="enter user name"/><br/>
+<input type = "password" (input) = 'userData.password = $event.target.value' placeholder="enter password"/><br/>
+<button (click)="getToken()">click to get gtoken</button>
+{{token}}
+{{error}}
