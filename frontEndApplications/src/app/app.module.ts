@@ -4,22 +4,18 @@ import {HttpClientModule} from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import {RouterModule, Routes} from '@angular/router';
-import { NotFoundComponent } from './Components/not-found/not-found.component';
-import { ContactComponent } from './Components/contact/contact.component';
-import { HomeComponent } from './Components/home/home.component';
+
 
 const appRoutes:Routes =[
-  {path:"home", component:HomeComponent},
-  {path:"contact", component:ContactComponent},
-  {path:"*", component:NotFoundComponent}
+  // {path:"home", component:HomeComponent},
+  // {path:"contact", component:ContactComponent},
+  // {path:"*", component:NotFoundComponent}
 ]
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NotFoundComponent,
-    ContactComponent,
-    HomeComponent
+    AppComponent
+   
   ],
   imports: [
     BrowserModule,
