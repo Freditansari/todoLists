@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http'
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { TokenService } from './Services/token.service';
-import {TokenData} from './TokenData'; 
+import {TokenData} from './TokenData';
 import { UserData } from './UserData';
 
 @Component({
@@ -12,37 +12,33 @@ import { UserData } from './UserData';
 export class AppComponent {
   title = 'frontEndApplications';
 
-  
-
-  constructor(private _http:HttpClient, private tokenService: TokenService){
+  constructor(private _http: HttpClient, private tokenService: TokenService) {
   }
-  userData : UserData = new UserData();
-  token ='';
-  // username ='';
-  // password ='';
-  error='';
+  userData: UserData = new UserData();
+  token = '';
+  error = '';
 
 
-  getToken(){
-   this.tokenService.getToken(this.userData).subscribe(res=>{
-      this.token=res.access_token;
+  getToken() {
+   this.tokenService.getToken(this.userData).subscribe(res => {
+      this.token = res.access_token;
       this.error = '';
-    }, err=>{
-      this.token='';
+    }, err => {
+      this.token = '';
       this.error = 'Error';
     }
   );
   }
 
-  getUsernameOfToken(tokenInfo){
+  getUsernameOfToken(tokenInfo) {
 
-    this._http.post("http://localhost:8080/api/getUserName",
-    {withCredentials:true},
+    this._http.post('http://localhost:8080/api/getUserName',
+    {withCredentials: true},
     {headers: new HttpHeaders(
-      {'Authorization':'Bearer '+tokenInfo['access_token']
+      {'Authorization': 'Bearer ' + tokenInfo['access_token']
   })
   })
-    .subscribe(res=>{
+    .subscribe(res => {
       console.log(res);
      });
 
