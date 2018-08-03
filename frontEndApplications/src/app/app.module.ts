@@ -10,6 +10,8 @@ import { TaskListComponent } from './Components/task-list/task-list.component';
 import { AddTaskComponent } from './Components/add-task/add-task.component';
 import { HomeComponent } from './Components/home/home.component';
 import { FormsModule } from '@angular/forms';
+import { TokenService } from './Services/token.service';
+import { TodoService } from './Services/todo.service';
 
 
 const appRoutes: Routes = [
@@ -34,7 +36,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [TokenService,TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
