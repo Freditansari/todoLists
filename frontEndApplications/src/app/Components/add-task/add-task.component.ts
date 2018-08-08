@@ -13,7 +13,7 @@ export class AddTaskComponent implements OnInit {
 
   //todo: perform add task logi
   add() {
-   this.todo.addItem(this.item,'')
+   this.todo.addItem(this.item,JSON.parse(sessionStorage.getItem('jsessionid')).access_token);
   }
 
   ngOnInit() {

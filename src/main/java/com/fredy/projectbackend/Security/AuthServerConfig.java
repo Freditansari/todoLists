@@ -72,6 +72,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
                 authorizedGrantTypes("password").
                 resourceIds("oauth2-resource").
                 scopes("read");
+
     }
 
     @Override

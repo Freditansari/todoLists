@@ -12,9 +12,16 @@ export class TaskListComponent implements OnInit {
 
   constructor(private router: Router, public todo: TodoService) {
      let token = sessionStorage.getItem('jsessionid');
+     todo.load();
+
+     //check if token session is expired or not.
+     // When the server reboot, the token session might still be there, 
+     //but the actual token in server expired. 
 
      if (token == null || JSON.parse(token).expires_in < new Date().getTime()){
        router.navigateByUrl('/login');
+
+
      }
    }
 

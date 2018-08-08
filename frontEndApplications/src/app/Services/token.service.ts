@@ -8,11 +8,12 @@ import { UserData } from '../UserData';
   providedIn: 'root'
 })
 export class TokenService {
-
+  
+  domainname='http://localhost:8080';
   constructor( private _http: HttpClient) { }
 
   getToken(userData: UserData) {
-    const getTokenUrl = 'http://localhost:8080/oauth/token';
+    const getTokenUrl = this.domainname+'/oauth/token';
     const getTokenParameters: HttpParams = new HttpParams()
     .append('grant_type', 'password')
     .append('username', userData.username)
