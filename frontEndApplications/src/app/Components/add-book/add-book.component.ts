@@ -13,10 +13,8 @@ export class AddBookComponent implements OnInit {
   constructor(private bookService: BookService) { }
 
   add(){
-    this.bookService.addBook(this.book, JSON.parse(sessionStorage.getItem('jsessionid')).access_token)
+     this.bookService.addBook(this.book, JSON.parse(sessionStorage.getItem('jsessionid')).access_token)
 
-    console.log( JSON.parse(sessionStorage.getItem('jsessionid')).access_token);
-    console.log(JSON.stringify(this.book));
   }
 
   ngOnInit() {

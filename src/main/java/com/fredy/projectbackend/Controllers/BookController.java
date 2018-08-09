@@ -16,9 +16,9 @@ public class BookController {
     BookRepositories bookRepo;
 
     @PostMapping(value ="/insertBook", produces="application/json")
-    public Object addBook(@RequestBody Book book){
-        //Principal principal;
-       // book.setHolderName(principal.getName());
+    public Object addBook(@RequestBody Book book, Principal principal){
+
+        book.setHolderName(principal.getName());
         bookRepo.save(book);
         return "{\"Message\":\"Success\"}";
     }
