@@ -12,11 +12,14 @@ import { HomeComponent } from './Components/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { TokenService } from './Services/token.service';
 import { TodoService } from './Services/todo.service';
+import { AddBookComponent } from './Components/add-book/add-book.component';
+import { BookService } from './Services/book.service';
 
 
 const appRoutes: Routes = [
    {path: 'login', component: LoginComponent},
    {path: 'home', component: HomeComponent},
+   {path: 'book', component: AddBookComponent},
    {path: '**', component: HomeComponent}
 ];
 
@@ -28,7 +31,8 @@ const appRoutes: Routes = [
     FooterComponent,
     TaskListComponent,
     AddTaskComponent,
-    HomeComponent
+    HomeComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [TokenService,TodoService],
+  providers: [TokenService,TodoService, BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
