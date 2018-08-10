@@ -8,7 +8,7 @@ import java.util.List;
 
 @SuppressWarnings("unused")
 @Repository
-public interface TaskRepositories extends JpaRepository<Task, Long> {
+public interface TaskRepository extends JpaRepository<Task, Long> {
 
      List<Task> getTasksByHolderName(String holderName);
 }

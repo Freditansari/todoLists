@@ -1,10 +1,6 @@
 package com.fredy.projectbackend.Models;
 
-import javax.persistence.CascadeType;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,26 +10,22 @@ public class Role implements Serializable {
     private static final long serialVersionUID = 902783495L;
 
     @Id
-    private Long roleId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int roleId;
     private String name;
 
-    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "role", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private Set<UserRole> userRoles = new HashSet<>();
 
     public Role() {
     }
 
-    public Role(Long roleId, String name, Set<UserRole> userRoles) {
-        this.roleId = roleId;
-        this.name = name;
-        this.userRoles = userRoles;
-    }
 
-    public Long getRoleId() {
+    public int getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(Long roleId) {
+    public void setRoleId(int roleId) {
         this.roleId = roleId;
     }
 

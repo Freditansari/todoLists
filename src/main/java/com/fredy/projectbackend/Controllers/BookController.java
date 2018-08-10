@@ -1,7 +1,8 @@
 package com.fredy.projectbackend.Controllers;
 
 import com.fredy.projectbackend.Models.Book;
-import com.fredy.projectbackend.Repositories.BookRepositories;
+
+import com.fredy.projectbackend.Repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,7 +14,7 @@ import java.security.Principal;
 @RestController
 public class BookController {
     @Autowired
-    BookRepositories bookRepo;
+    BookRepository bookRepo;
 
     @PostMapping(value ="/insertBook", produces="application/json")
     public Object addBook(@RequestBody Book book, Principal principal){

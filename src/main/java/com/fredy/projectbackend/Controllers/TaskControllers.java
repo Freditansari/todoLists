@@ -1,10 +1,8 @@
 package com.fredy.projectbackend.Controllers;
 
 import com.fredy.projectbackend.Models.Task;
-import com.fredy.projectbackend.Repositories.TaskRepositories;
+import com.fredy.projectbackend.Repositories.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +14,7 @@ import java.util.List;
 public class TaskControllers {
 
     @Autowired
-    TaskRepositories taskRepo;
+    TaskRepository taskRepo;
 
     @PostMapping(value = "/insertTask", produces="application/json")
     public Object addTask(Principal principal, @RequestParam("task") String task){
