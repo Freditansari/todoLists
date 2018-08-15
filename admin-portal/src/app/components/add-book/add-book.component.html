@@ -1,7 +1,7 @@
 
-          <form class="example-form" (submit) =addBook()>
+          <form class="example-form" #myForm="ngForm"  (submit) =addBook()>
               <mat-form-field class="example-full-width">
-                <input matInput required minlength="3" placeholder="Book Title" #name="ngModel" [(ngModel)]= "book.Title" name ="bookTitle" />
+                <input id="bookTitle" matInput required minlength="3" placeholder="Book Title" #name="ngModel" [(ngModel)]= "book.Title" name ="bookTitle" />
               </mat-form-field>
               <mat-form-field class="example-full-width">
                 <input matInput required minlength="3" placeholder="Book author" #name="ngModel" [(ngModel)]= "book.author" name ="bookAuthor" />
@@ -16,7 +16,7 @@
                 <input matInput required minlength="3" placeholder="Enter Language" #name="ngModel" [(ngModel)]= "book.Language" name ="languange" />
               </mat-form-field>
               <mat-form-field class="example-full-width">
-                <mat-select [(value)]="selected" placeholder="Select Category">
+                <mat-select [(value)]="Categoryselected" required placeholder="Select Category">
                   <mat-option>None</mat-option>
                   <mat-option value="option1">Management</mat-option>
                   <mat-option value="option2">Technical</mat-option>
@@ -29,7 +29,7 @@
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
-                    <mat-select [(value)]="selected" placeholder="Select format">
+                    <mat-select [(value)]="Formatselected" placeholder="Select format">
                       <mat-option value="option1">Paperback</mat-option>
                       <mat-option value="option2">Hardcover</mat-option>
                     </mat-select>
@@ -56,5 +56,5 @@
                           <input matInput type="number" required  placeholder="Enter in stock number" #name="ngModel" [(ngModel)]= "book.inStockNumber" name ="inStockNumber" />
                       </mat-form-field> 
                   
-              <button mat-raised-button color="primary">Submit</button>
+              <button type="submit" [disabled]="!myForm.form.valid" mat-raised-button color="primary">Submit</button>
           </form>
