@@ -1,0 +1,60 @@
+
+          <form class="example-form" (submit) =addBook()>
+              <mat-form-field class="example-full-width">
+                <input matInput required minlength="3" placeholder="Book Title" #name="ngModel" [(ngModel)]= "book.Title" name ="bookTitle" />
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input matInput required minlength="3" placeholder="Book author" #name="ngModel" [(ngModel)]= "book.author" name ="bookAuthor" />
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input matInput required minlength="3" placeholder="Publisher" #name="ngModel" [(ngModel)]= "book.Publisher" name ="publisher" />
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input matInput required minlength="3" type="date" placeholder="Enter published date" #name="ngModel" [(ngModel)]= "book.publicationDate" name ="publicationDate" />
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input matInput required minlength="3" placeholder="Enter Language" #name="ngModel" [(ngModel)]= "book.Language" name ="languange" />
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <mat-select [(value)]="selected" placeholder="Select Category">
+                  <mat-option>None</mat-option>
+                  <mat-option value="option1">Management</mat-option>
+                  <mat-option value="option2">Technical</mat-option>
+                  <mat-option value="option3">Computer Science</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width">
+                  <input matInput type="number" min="1"  required placeholder="Enter number of pages" #name="ngModel" [(ngModel)]= "book.numberOfPages" name ="numberOfPages" />
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <mat-select [(value)]="selected" placeholder="Select format">
+                      <mat-option value="option1">Paperback</mat-option>
+                      <mat-option value="option2">Hardcover</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                      <input matInput required minlength="3" placeholder="Enter ISBN" #name="ngModel" [(ngModel)]="book.ISBN" name ="isbn" />
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                      <input matInput required  placeholder="Enter shipping weight" #name="ngModel" [(ngModel)]= "book.shippingWeight" name ="shippingWeight" />
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                      <input matInput type="number" required  placeholder="Enter List Price" #name="ngModel" [(ngModel)]= "book.listPrice" name ="listPrice" />
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                      <input matInput type="number" required  placeholder="Enter Our Price" #name="ngModel" [(ngModel)]= "book.ourPrice" name ="ourPrice" />
+                  </mat-form-field>
+                  
+                      <mat-checkbox required name="isActive" [(ngModel)]= "book.isActive">is active?</mat-checkbox>
+
+                      <mat-form-field class="example-full-width">
+                          <textarea matInput placeholder="Please Enter book descriptions" [(ngModel)]="book.descriptions" name="descriptions"></textarea>
+                      </mat-form-field>  
+                      <mat-form-field class="example-full-width">
+                          <input matInput type="number" required  placeholder="Enter in stock number" #name="ngModel" [(ngModel)]= "book.inStockNumber" name ="inStockNumber" />
+                      </mat-form-field> 
+                  
+              <button mat-raised-button color="primary">Submit</button>
+          </form>
