@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders, HttpParams} from '@angular/common/http';
 import { TokenData } from '../TokenData';
 import { UserData } from '../UserData';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +11,20 @@ import { UserData } from '../UserData';
 export class TodoService {
 
   todoLists=[];
+
+  isError:boolean = false;
+  names =["Joko", "chandra"];
+
   domainname='http://localhost:8080';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private router:Router) { }
 
   load(){
     const token = sessionStorage.getItem('jsessionid');
 
     const tokenJSON = JSON.parse(token);
+
+    console.log(tokenJSON);
 
     if (token != null || tokenJSON.expires_in < new Date().getTime()) {
 
@@ -40,7 +47,14 @@ export class TodoService {
 
             this.todoLists.unshift(res[i].task);
           }
-        });
+        }, (error) =>{
+          console.log(error);
+          this.router.navigateByUrl("/login");
+          console.log("error from todo-services");
+
+        }
+      
+      );
 
     }
 

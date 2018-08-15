@@ -17,11 +17,16 @@ export class TaskListComponent implements OnInit {
      //check if token session is expired or not.
      // When the server reboot, the token session might still be there, 
      //but the actual token in server expired. 
+     console.log(this.todo.isError);
+    //  this.todo.isError = true;
+     console.log(this.todo.isError);
+     console.log(JSON.stringify(this.todo.names ) );
 
+
+     
      if (token == null || JSON.parse(token).expires_in < new Date().getTime()){
        router.navigateByUrl('/login');
-
-
+       
      }
    }
 

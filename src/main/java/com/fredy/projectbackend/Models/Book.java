@@ -1,5 +1,7 @@
 package com.fredy.projectbackend.Models;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -11,48 +13,28 @@ public class Book implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
-    private String name;
-    private Float price;
-    private String holderName;
+    private String title;
+    private String author;
+    private String publisher;
+    private String publicationDate;
+    private String language;
+    private String category;
+    private int numberOfPages;
+    private String format;
+    private String isbn;
+    private double shippingWeight;
 
-    public Book() {
-    }
+    private double ListPrice;
+    private double ourPrice;
 
-    public Book(String name, Float price, String holderName) {
-        this.name = name;
-        this.price = price;
-        this.holderName = holderName;
-    }
+    private boolean isActive=true;
 
-    public Long getId() {
-        return id;
-    }
+    @Column(columnDefinition = "text")
+    private String description;
+    private String inStockNumber;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Transient
+    private MultipartFile bookImage;
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Float getPrice() {
-        return price;
-    }
-
-    public void setPrice(Float price) {
-        this.price = price;
-    }
-
-    public String getHolderName() {
-        return holderName;
-    }
-
-    public void setHolderName(String holderName) {
-        this.holderName = holderName;
-    }
 }

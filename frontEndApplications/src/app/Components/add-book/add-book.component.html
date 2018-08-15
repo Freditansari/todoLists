@@ -1,9 +1,25 @@
-<h3 class="addTaskLabel">Add book</h3>
+<!-- <div class="example-container">
+  <mat-form-field>
+    <input matInput placeholder="Input">
+  </mat-form-field>
 
-<form class="addTasksForm" action="#" method="POST">
-  <input placeholder="Enter book name" class="addTaskInput" type="text" name="bookName" [(ngModel)]="book.name" />
-  <input placeholder="Enter book price" class="addTaskInput" type="text" name="bookprice" [(ngModel)]="book.price" />
-  <input placeholder="Enter holder name" class="addTaskInput" type="text" name="holderName" [(ngModel)]="book.holderName" />
+  <mat-form-field>
+    <textarea matInput placeholder="Textarea"></textarea>
+  </mat-form-field>
 
-	<button (click)="add()" class ="addTaskSubmitButton">Submit</button>
-</form> 
+  <mat-form-field>
+    <mat-select placeholder="Select">
+      <mat-option value="option">Option</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div> -->
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Favorite food" value="Sushi">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Leave a comment"></textarea>
+  </mat-form-field>
+</form>
+

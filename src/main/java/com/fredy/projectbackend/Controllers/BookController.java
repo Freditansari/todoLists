@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
+import java.util.List;
 
 @RestController
 public class BookController {
@@ -19,8 +20,13 @@ public class BookController {
     @PostMapping(value ="/insertBook", produces="application/json")
     public Object addBook(@RequestBody Book book, Principal principal){
 
-        book.setHolderName(principal.getName());
-        bookRepo.save(book);
-        return "{\"Message\":\"Success\"}";
+//        book.setHolderName(principal.getName());
+//        bookRepo.save(book);
+          return "{\"Message\":\"Success\"}";
+    }
+
+    @PostMapping(value ="/getBooks", produces="application/json")
+    public List<Book> getBooks(){
+        return bookRepo.findAll();
     }
 }

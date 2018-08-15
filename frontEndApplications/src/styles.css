@@ -1,6 +1,1 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-
-body{
-    margin:0px 0px 0px 0px;
-    font-family: 'Roboto', sans-serif; 
-}
+@import '@angular/material/prebuilt-themes/pink-bluegrey.css';

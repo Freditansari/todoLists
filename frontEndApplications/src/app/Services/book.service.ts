@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Book } from '../book.model';
+import { Book } from '../models/book';
+
 import { HttpHeaders, HttpParams, HttpClient} from '@angular/common/http';
 /*
 *this is the sample to send http post using oauth2 with json body

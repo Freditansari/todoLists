@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from '../../book.model';
+import { Book } from '../../models/book';
 import { BookService } from '../../Services/book.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class AddBookComponent implements OnInit {
   constructor(private bookService: BookService) { }
 
   add(){
-     this.bookService.addBook(this.book, JSON.parse(sessionStorage.getItem('jsessionid')).access_token)
+    //  this.bookService.addBook(this.book, JSON.parse(sessionStorage.getItem('jsessionid')).access_token)
 
   }
 

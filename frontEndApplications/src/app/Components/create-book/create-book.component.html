@@ -1,0 +1,11 @@
+<form class = "loginForm" (submit)="login()">
+		
+  <input class = "input"
+    required
+    placeholder = "Enter Username"
+    [(ngModel)] = "book.title"
+    #name = "ngModel"
+    name = "name"
+    type = "text"
+    (input)="error=false"/>
+   </form>
