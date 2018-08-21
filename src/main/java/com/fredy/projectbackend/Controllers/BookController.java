@@ -5,16 +5,27 @@ import com.fredy.projectbackend.Models.Book;
 import com.fredy.projectbackend.Repositories.BookRepository;
 import com.fredy.projectbackend.Services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.security.Principal;
+import java.util.Iterator;
 import java.util.List;
 
 @RestController
 public class BookController {
+//    private String imageName;
     @Autowired
     BookRepository bookRepo;
 
@@ -22,10 +33,33 @@ public class BookController {
     BookService bookService;
 
     @PostMapping(value ="/insertBook", produces="application/json")
-    public Object addBook(@RequestBody Book book, Principal principal){
+    public Book addBook(@RequestBody Book book, Principal principal){
 //          bookRepo.save(book);
-          bookService.save(book);
-          return "{\"Message\":\"Success\"}";
+          return bookService.save(book);
+
+    }
+
+    @PostMapping(value = "/insertBook/addImage" )
+    public ResponseEntity upload(@RequestParam("id") Long id, HttpServletResponse response, HttpServletRequest request){
+        try {
+            Book book = bookService.findOne(id);
+            MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+            Iterator<String> it = multipartRequest.getFileNames();
+            MultipartFile multipartFile= multipartRequest.getFile(it.next());
+            String filename = id+".png";
+//            imageName = filename;
+
+            byte[] bytes = multipartFile.getBytes();
+            BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File("src/main/resources/static/image/book/"+filename)));
+            stream.write(bytes);
+            stream.close();
+            return new ResponseEntity("upload success!", HttpStatus.OK);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity("upload failed", HttpStatus.BAD_REQUEST);
+        }
+
     }
 
     @PostMapping(value ="/getBooks", produces="application/json")

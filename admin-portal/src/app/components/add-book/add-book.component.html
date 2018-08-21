@@ -55,7 +55,7 @@
                           <input matInput type="number" required  placeholder="Enter in stock number" #name="ngModel" [(ngModel)]= "book.inStockNumber" name ="inStockNumber" />
                       </mat-form-field>
                       <button type="button" mat-raised-button color="primary" (click)="imgFileInput.click()">Add a photo</button>
-                      <input hidden type="file" #imgFileInput (change)="previewImage($event)"/>
+                      <input hidden type="file" #imgFileInput (change)="uploadImageService.fileChangeEvent($event)"/><br>
                      
               <button type="submit" [disabled]="!myForm.form.valid" mat-raised-button color="primary">Submit</button>
           </form>

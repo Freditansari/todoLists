@@ -15,6 +15,8 @@ import { TokenService } from './service/token.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { BookService } from './service/book.service';
+import { UploadImageService } from './service/upload-image.service';
+
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -47,7 +49,7 @@ const appRoutes: Routes = [
     MatMenuModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [TokenService, BookService],
+  providers: [TokenService, BookService, UploadImageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
