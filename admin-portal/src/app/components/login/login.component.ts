@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
       this.tokenService.getToken(this.userData).subscribe(res =>{
         res.expires_in= new Date().getTime()+ res.expires_in*1000;
         sessionStorage.setItem('jsessionid', JSON.stringify(res));
-        console.log(sessionStorage.getItem('jsessionid'));
+        
         this.router.navigateByUrl('/home');
       }, (error)=>console.log(error));
     }

@@ -1,26 +1,25 @@
 
-          <form class="example-form" #myForm="ngForm"  (submit) =addBook()>
+          <form class="example-form" #myForm="ngForm"  (submit) ="onSubmit()">
               <mat-form-field class="example-full-width">
-                <input id="bookTitle" matInput required minlength="3" placeholder="Book Title" #name="ngModel" [(ngModel)]= "book.Title" name ="bookTitle" />
+                <input id="bookTitle" matInput required minlength="3" placeholder="Book Title" #name="ngModel" [(ngModel)]= "book.title" name ="bookTitle" />
               </mat-form-field>
               <mat-form-field class="example-full-width">
                 <input matInput required minlength="3" placeholder="Book author" #name="ngModel" [(ngModel)]= "book.author" name ="bookAuthor" />
               </mat-form-field>
               <mat-form-field class="example-full-width">
-                <input matInput required minlength="3" placeholder="Publisher" #name="ngModel" [(ngModel)]= "book.Publisher" name ="publisher" />
+                <input matInput required minlength="3" placeholder="Publisher" #name="ngModel" [(ngModel)]= "book.publisher" name ="publisher" />
               </mat-form-field>
               <mat-form-field class="example-full-width">
                 <input matInput required minlength="3" type="date" placeholder="Enter published date" #name="ngModel" [(ngModel)]= "book.publicationDate" name ="publicationDate" />
               </mat-form-field>
               <mat-form-field class="example-full-width">
-                <input matInput required minlength="3" placeholder="Enter Language" #name="ngModel" [(ngModel)]= "book.Language" name ="languange" />
+                <input matInput required minlength="3" placeholder="Enter Language" #name="ngModel" [(ngModel)]= "book.language" name ="languange" />
               </mat-form-field>
               <mat-form-field class="example-full-width">
-                <mat-select [(value)]="Categoryselected" required placeholder="Select Category">
-                  <mat-option>None</mat-option>
-                  <mat-option value="option1">Management</mat-option>
-                  <mat-option value="option2">Technical</mat-option>
-                  <mat-option value="option3">Computer Science</mat-option>
+                <mat-select [(value)]="Categoryselected" [(ngModel)]="book.category" name="BookCategory" required placeholder="Select Category">
+                  <mat-option value="Management">Management</mat-option>
+                  <mat-option value="Technical">Technical</mat-option>
+                  <mat-option value="Computer Science">Computer Science</mat-option>
                 </mat-select>
               </mat-form-field>
 
@@ -29,13 +28,13 @@
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
-                    <mat-select [(value)]="Formatselected" placeholder="Select format">
-                      <mat-option value="option1">Paperback</mat-option>
-                      <mat-option value="option2">Hardcover</mat-option>
+                    <mat-select [(value)]="Formatselected" [(ngModel)]="book.format" name="bookFormat" placeholder="Select format">
+                      <mat-option value="Paperback">Paperback</mat-option>
+                      <mat-option value="Hardcover">Hardcover</mat-option>
                     </mat-select>
                   </mat-form-field>
                   <mat-form-field class="example-full-width">
-                      <input matInput required minlength="3" placeholder="Enter ISBN" #name="ngModel" [(ngModel)]="book.ISBN" name ="isbn" />
+                      <input matInput required minlength="3" placeholder="Enter ISBN" #name="ngModel" [(ngModel)]="book.isbn" name ="isbn" />
                   </mat-form-field>
                   <mat-form-field class="example-full-width">
                       <input matInput required  placeholder="Enter shipping weight" #name="ngModel" [(ngModel)]= "book.shippingWeight" name ="shippingWeight" />
@@ -47,14 +46,16 @@
                       <input matInput type="number" required  placeholder="Enter Our Price" #name="ngModel" [(ngModel)]= "book.ourPrice" name ="ourPrice" />
                   </mat-form-field>
                   
-                      <mat-checkbox required name="isActive" [(ngModel)]= "book.isActive">is active?</mat-checkbox>
+                      <mat-checkbox required name="isActive" [(ngModel)]= "book.active">is active?</mat-checkbox>
 
                       <mat-form-field class="example-full-width">
-                          <textarea matInput placeholder="Please Enter book descriptions" [(ngModel)]="book.descriptions" name="descriptions"></textarea>
+                          <textarea matInput placeholder="Please Enter book descriptions" [(ngModel)]="book.description" name="descriptions"></textarea>
                       </mat-form-field>  
                       <mat-form-field class="example-full-width">
                           <input matInput type="number" required  placeholder="Enter in stock number" #name="ngModel" [(ngModel)]= "book.inStockNumber" name ="inStockNumber" />
-                      </mat-form-field> 
-                  
+                      </mat-form-field>
+                      <button type="button" mat-raised-button color="primary" (click)="imgFileInput.click()">Add a photo</button>
+                      <input hidden type="file" #imgFileInput (change)="previewImage($event)"/>
+                     
               <button type="submit" [disabled]="!myForm.form.valid" mat-raised-button color="primary">Submit</button>
           </form>

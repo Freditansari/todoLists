@@ -12,7 +12,7 @@ export class Book {
 	public shippingWeight: number;
 	public listPrice: number;
 	public ourPrice: number;
-	public isActive: boolean;
+	public active: boolean;
 	public description: string;
 	public inStockNumber: number;
 }

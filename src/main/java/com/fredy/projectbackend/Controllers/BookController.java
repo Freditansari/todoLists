@@ -3,6 +3,7 @@ package com.fredy.projectbackend.Controllers;
 import com.fredy.projectbackend.Models.Book;
 
 import com.fredy.projectbackend.Repositories.BookRepository;
+import com.fredy.projectbackend.Services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,11 +18,13 @@ public class BookController {
     @Autowired
     BookRepository bookRepo;
 
+    @Autowired
+    BookService bookService;
+
     @PostMapping(value ="/insertBook", produces="application/json")
     public Object addBook(@RequestBody Book book, Principal principal){
-
-//        book.setHolderName(principal.getName());
-//        bookRepo.save(book);
+//          bookRepo.save(book);
+          bookService.save(book);
           return "{\"Message\":\"Success\"}";
     }
 
