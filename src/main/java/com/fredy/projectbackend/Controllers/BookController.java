@@ -7,10 +7,7 @@ import com.fredy.projectbackend.Services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -24,6 +21,7 @@ import java.util.Iterator;
 import java.util.List;
 
 @RestController
+@RequestMapping(value = "/books")
 public class BookController {
 //    private String imageName;
     @Autowired
@@ -47,10 +45,10 @@ public class BookController {
             Iterator<String> it = multipartRequest.getFileNames();
             MultipartFile multipartFile= multipartRequest.getFile(it.next());
             String filename = id+".png";
-//            imageName = filename;
+
 
             byte[] bytes = multipartFile.getBytes();
-            BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File("src/main/resources/static/image/book/"+filename)));
+            BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File("src/main/image/"+filename)));
             stream.write(bytes);
             stream.close();
             return new ResponseEntity("upload success!", HttpStatus.OK);
@@ -62,8 +60,8 @@ public class BookController {
 
     }
 
-    @PostMapping(value ="/getBooks", produces="application/json")
+    @GetMapping(value ="/getBooks", produces="application/json")
     public List<Book> getBooks(){
-        return bookRepo.findAll();
+        return bookService.findAll();
     }
 }

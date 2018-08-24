@@ -1,0 +1,23 @@
+<li *ngFor="let book of bookList">
+  
+  
+  <mat-card class="example-card">
+    <mat-card-header>
+      <!-- <div mat-card-avatar class="example-header-image"></div> -->
+      <img  mat-card-avatar src="https://animalso.com/wp-content/uploads/2017/01/Chihuahua_8.jpg">
+      <mat-card-title><strong>{{book.title}}</strong></mat-card-title>
+      <mat-card-subtitle>{{book.author}}</mat-card-subtitle>
+    </mat-card-header>
+    <!-- <img mat-card-image src="https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12213613/Chihuahua-onWhite-13.jpg" alt="Italian Trulli"> -->
+    <img mat-card-image [src]="'http://192.168.1.132:8080/'+book.id"> 
+    <mat-card-content>
+      <p>
+        {{book.description}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+</li>

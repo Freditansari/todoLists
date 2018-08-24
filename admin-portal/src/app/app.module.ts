@@ -16,11 +16,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { BookService } from './service/book.service';
 import { UploadImageService } from './service/upload-image.service';
+import { BookListComponent } from './components/book-list/book-list.component';
+import { GetBookListService } from './service/get-book-list.service';
+import {MatCardModule} from '@angular/material/card';
 
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'add-book', component: AddBookComponent},
+  {path: 'view-books', component: BookListComponent},
   {path: '**', component: HomeComponent}
 ];
 
@@ -30,11 +34,13 @@ const appRoutes: Routes = [
     HeadersComponent,
     HomeComponent,
     LoginComponent,
-    AddBookComponent
+    AddBookComponent,
+    BookListComponent
   ],
   imports: [
     FormsModule,
     MatGridListModule,
+    MatCardModule,
     MatIconModule,
     MatSelectModule,
     BrowserModule,
@@ -49,7 +55,7 @@ const appRoutes: Routes = [
     MatMenuModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [TokenService, BookService, UploadImageService],
+  providers: [TokenService, BookService, UploadImageService, GetBookListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

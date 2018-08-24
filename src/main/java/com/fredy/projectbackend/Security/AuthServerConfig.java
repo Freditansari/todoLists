@@ -38,7 +38,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
             HttpServletRequest req = (HttpServletRequest) request;
             HttpServletResponse res = (HttpServletResponse) response;
 
-            res.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+            res.setHeader("Access-Control-Allow-Origin", "http://192.168.1.132:4200");
             res.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
             res.setHeader("Access-Control-Max-Age","3600");
             res.setHeader("Access-Control-Allow-Headers","Authorization, Content-Type");
@@ -72,6 +72,8 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
                 authorizedGrantTypes("password").
                 resourceIds("oauth2-resource").
                 scopes("read");
+
+
 
     }
 
