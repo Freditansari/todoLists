@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedOutputStream;
+import java.io.Console;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.security.Principal;
@@ -23,45 +24,58 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/books")
 public class BookController {
-//    private String imageName;
+    //    private String imageName;
     @Autowired
     BookRepository bookRepo;
 
     @Autowired
     BookService bookService;
 
-    @PostMapping(value ="/insertBook", produces="application/json")
-    public Book addBook(@RequestBody Book book, Principal principal){
+    @PostMapping(value = "/insertBook", produces = "application/json")
+    public Book addBook(@RequestBody Book book, Principal principal) {
 //          bookRepo.save(book);
-          return bookService.save(book);
+        return bookService.save(book);
 
     }
 
-    @PostMapping(value = "/insertBook/addImage" )
-    public ResponseEntity upload(@RequestParam("id") Long id, HttpServletResponse response, HttpServletRequest request){
+    @PostMapping(value = "/insertBook/addImage")
+    public ResponseEntity upload(@RequestParam("id") Long id, HttpServletResponse response, HttpServletRequest request) {
         try {
             Book book = bookService.findOne(id);
             MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
             Iterator<String> it = multipartRequest.getFileNames();
-            MultipartFile multipartFile= multipartRequest.getFile(it.next());
-            String filename = id+".png";
+            MultipartFile multipartFile = multipartRequest.getFile(it.next());
+            String filename = id + ".png";
 
 
             byte[] bytes = multipartFile.getBytes();
-            BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File("src/main/image/"+filename)));
+            BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File("src/main/image/" + filename)));
             stream.write(bytes);
             stream.close();
             return new ResponseEntity("upload success!", HttpStatus.OK);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity("upload failed", HttpStatus.BAD_REQUEST);
         }
 
     }
 
-    @GetMapping(value ="/getBooks", produces="application/json")
-    public List<Book> getBooks(){
+    @GetMapping(value = "/getBooks", produces = "application/json")
+    public List<Book> getBooks() {
         return bookService.findAll();
+    }
+
+    @PostMapping(value = "/removeBook/{id}")
+    public ResponseEntity upload(@RequestParam("id") Long id) {
+        try {
+            bookService.removeOne(id);
+            return new ResponseEntity("delete success!", HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity("delete failed", HttpStatus.BAD_REQUEST);
+
+        }
+
     }
 }

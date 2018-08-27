@@ -16,7 +16,8 @@
                 <input matInput required minlength="3" placeholder="Enter Language" #name="ngModel" [(ngModel)]= "book.language" name ="languange" />
               </mat-form-field>
               <mat-form-field class="example-full-width">
-                <mat-select [(value)]="Categoryselected" [(ngModel)]="book.category" name="BookCategory" required placeholder="Select Category">
+                <!-- <mat-select [(value)]="Categoryselected" [(ngModel)]="book.category" name="BookCategory" required placeholder="Select Category"> -->
+                    <mat-select [(ngModel)]="book.category" name="BookCategory" required placeholder="Select Category">
                   <mat-option value="Management">Management</mat-option>
                   <mat-option value="Technical">Technical</mat-option>
                   <mat-option value="Computer Science">Computer Science</mat-option>
@@ -28,7 +29,8 @@
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
-                    <mat-select [(value)]="Formatselected" [(ngModel)]="book.format" name="bookFormat" placeholder="Select format">
+                    <!-- <mat-select [(value)]="Formatselected" [(ngModel)]="book.format" name="bookFormat" placeholder="Select format"> -->
+                        <mat-select [(ngModel)]="book.format" name="bookFormat" placeholder="Select format">
                       <mat-option value="Paperback">Paperback</mat-option>
                       <mat-option value="Hardcover">Hardcover</mat-option>
                     </mat-select>

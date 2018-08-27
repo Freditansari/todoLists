@@ -9,7 +9,8 @@ import {TokenData} from '../models/token-data'
 })
 export class TokenService {
 
-  domainname='http://192.168.1.132:8080';
+  private isLoggedIn
+  domainname='http://206.189.35.230:8080';
   constructor( private _http: HttpClient) { }
  
 

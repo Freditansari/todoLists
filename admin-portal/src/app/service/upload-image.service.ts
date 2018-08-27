@@ -14,7 +14,7 @@ export class UploadImageService {
   }
 
   upload(bookId:number){
-    this.makeFileRequest("http://localhost:8080/books/insertBook/addImage?id="+bookId, [], this.filesToUpload).then((result)=>{
+    this.makeFileRequest("http://206.189.35.230:8080/books/insertBook/addImage?id="+bookId, [], this.filesToUpload).then((result)=>{
       console.log(result);
     },(error) =>{
       console.log(error);

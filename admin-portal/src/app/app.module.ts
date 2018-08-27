@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatMenuModule, MatDatepicker, MatDatepickerModule, MatIconModule, MatSelectModule, MatGridListModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatMenuModule, MatDatepicker, MatDatepickerModule, MatIconModule, MatSelectModule, MatGridListModule, MatDialogModule} from '@angular/material';
 import {MatToolbarModule} from '@angular/material/toolbar';
 
 import { AppComponent } from './app.component';
@@ -19,6 +19,7 @@ import { UploadImageService } from './service/upload-image.service';
 import { BookListComponent } from './components/book-list/book-list.component';
 import { GetBookListService } from './service/get-book-list.service';
 import {MatCardModule} from '@angular/material/card';
+
 
 
 const appRoutes: Routes = [
@@ -39,6 +40,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     FormsModule,
+    MatDialogModule,
     MatGridListModule,
     MatCardModule,
     MatIconModule,

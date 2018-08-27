@@ -10,7 +10,7 @@ import {UploadImageService} from '../../service/upload-image.service';
 })
 export class AddBookComponent implements OnInit {
 
-  constructor(private bookService: BookService, private uploadImageService : UploadImageService) { }
+  constructor(private bookService: BookService, public uploadImageService : UploadImageService) { }
 
   book:Book= new Book();
 

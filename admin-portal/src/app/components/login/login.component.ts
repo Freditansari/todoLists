@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   userData:UserData = new UserData();
   isError=false;
+  error_message;
 
   ngOnInit() {
   }
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('jsessionid', JSON.stringify(res));
         sessionStorage.setItem('UserData', JSON.stringify(UserData));
         this.router.navigateByUrl('/home');
-      }, (error)=>console.log(error));
+      }, (error)=>this.error_message =JSON.parse(JSON.stringify(error)).error.error_description);
     }
   }
 
