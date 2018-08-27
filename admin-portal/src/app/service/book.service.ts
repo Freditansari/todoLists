@@ -9,7 +9,7 @@ export class BookService {
 
   constructor(private http:HttpClient) { }
   addBook(book:Book, token:string){
-        const Url = 'http://206.189.35.230:8080/books/insertBook';
+        const Url = 'http://localhost:8080/books/insertBook';
         const saveBookHeaders=new HttpHeaders().set('Authorization', 'Bearer ' + token);
        
         return this.http.post(Url,book, {headers: saveBookHeaders, withCredentials:true})

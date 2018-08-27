@@ -9,7 +9,7 @@
         <mat-card-subtitle>{{book.author}}</mat-card-subtitle>
       </mat-card-header>
       <!-- <img mat-card-image src="https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12213613/Chihuahua-onWhite-13.jpg" alt="Italian Trulli"> -->
-      <img mat-card-image [src]="'http://206.189.35.230:8080/'+book.id"> 
+      <img mat-card-image [src]="'http://localhost:8080/'+book.id"> 
       <mat-card-content>
         <p>
           {{book.description}}

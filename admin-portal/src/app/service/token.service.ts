@@ -10,7 +10,7 @@ import {TokenData} from '../models/token-data'
 export class TokenService {
 
   private isLoggedIn
-  domainname='http://206.189.35.230:8080';
+  domainname='http://localhost:8080';
   constructor( private _http: HttpClient) { }
  
 

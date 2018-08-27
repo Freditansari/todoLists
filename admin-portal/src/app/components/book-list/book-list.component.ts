@@ -29,6 +29,8 @@ export class BookListComponent implements OnInit {
 
     });
   }
+
+  //NOTE:how to pass data from angular urls
   onSelect(book:Book) {
     this.selectedBook=book;
     console.log(this.selectedBook);
