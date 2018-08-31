@@ -19,6 +19,7 @@ import { UploadImageService } from './service/upload-image.service';
 import { BookListComponent } from './components/book-list/book-list.component';
 import { GetBookListService } from './service/get-book-list.service';
 import {MatCardModule} from '@angular/material/card';
+import { ShirtMakerComponent } from './components/shirt-maker/shirt-maker.component';
 
 
 
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'add-book', component: AddBookComponent},
   {path: 'view-books', component: BookListComponent},
+  {path: 'shirt-maker', component: ShirtMakerComponent},
   {path: '**', component: HomeComponent}
 ];
 
@@ -36,7 +38,8 @@ const appRoutes: Routes = [
     HomeComponent,
     LoginComponent,
     AddBookComponent,
-    BookListComponent
+    BookListComponent,
+    ShirtMakerComponent
   ],
   imports: [
     FormsModule,
