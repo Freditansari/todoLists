@@ -18,10 +18,8 @@ public class UserControllers {
     public ResponseEntity<String> getUserName(Principal principal){
 
 
-<<<<<<< HEAD
+
         return new ResponseEntity<String>( principal.getName(), HttpStatus.OK);
-=======
-        return new ResponseEntity<String>(principal.getName(),HttpStatus.OK);
->>>>>>> 36d0f93e87dffa1e77d0b04da46d386608ef6ab7
+
     }
 }
