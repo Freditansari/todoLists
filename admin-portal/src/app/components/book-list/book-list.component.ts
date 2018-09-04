@@ -19,16 +19,36 @@ export class BookListComponent implements OnInit {
   public bookList:Book[];
   private allChecked:boolean;
   private removeBookList:Book[] = new Array();
+  private loginStatus:boolean =false;
+
 
   constructor(private getBookListService : GetBookListService, private router: Router, private tokenService:TokenService, public dialog:MatDialog) { }
 
   ngOnInit() {
-    this.getBookListService.getBook(JSON.parse(sessionStorage.getItem('jsessionid')).access_token).subscribe(res=>{
-      this.bookList =JSON.parse(JSON.stringify(res));
-    },error=>{
+    
+    try{
+      this.tokenService.isLoggedIn(JSON.parse(sessionStorage.getItem('jsessionid')).access_token).subscribe(res=>{
+        this.getBookListService.getBook(JSON.parse(sessionStorage.getItem('jsessionid')).access_token).subscribe(res=>{
+          this.bookList =JSON.parse(JSON.stringify(res));
+        },error=>{
+          console.log(error);
+  
+        });
+      }, err=>{
+        console.log("err");
+      });
 
-    });
+    }catch(exception){
+      console.log(exception);
+      this.router.navigateByUrl("/login");
+    }
+    
+
+
+  
   }
+
+  
 
   //NOTE:how to pass data from angular urls
   onSelect(book:Book) {

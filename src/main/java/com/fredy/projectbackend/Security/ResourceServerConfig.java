@@ -31,6 +31,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .disable().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().authorizeRequests()
                 .antMatchers("/oauth/token/**").permitAll()
+                .antMatchers("/api/getUserName/**").permitAll()
                 .antMatchers("/src/main/image/book/**").permitAll()
                 .antMatchers("/books/**").authenticated();
 

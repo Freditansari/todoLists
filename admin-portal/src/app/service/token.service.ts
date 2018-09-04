@@ -9,8 +9,10 @@ import {TokenData} from '../models/token-data'
 })
 export class TokenService {
 
-  private isLoggedIn
+  private loggedIn;
   domainname='http://localhost:8080';
+  public loggedInUserName;
+
   constructor( private _http: HttpClient) { }
  
 
@@ -28,4 +30,26 @@ export class TokenService {
       return this._http.post<TokenData>(getTokenUrl, {withCredentials: true}
         , {headers: getTokenHeaders, params : getTokenParameters});
     }
+
+    isLoggedIn(token: string){
+
+      const Url = 'http://localhost:8080/api/getUserName';
+      const loginHeaders=new HttpHeaders().set('Authorization', 'Bearer ' + token);
+      return this._http.get(Url, {headers: loginHeaders, withCredentials:true, responseType:'text'})
+      // .subscribe(
+      //   res=>{
+      //     this.loggedIn=true;
+      //     this.loggedInUserName=res.toString();
+          
+
+      //   }, err=>{
+      //      console.log(err); 
+      //   });
+   
+      
+
+
+    }
+
+
 }
