@@ -14,9 +14,8 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.logging.Filter;
 /*
-*use jaxb-api, jaxb-impl, jaxb-core, javax-activation dependencies if we use java version >8
+ *use jaxb-api, jaxb-impl, jaxb-core, javax-activation dependencies if we use java version >8
  */
 
 @Configuration
