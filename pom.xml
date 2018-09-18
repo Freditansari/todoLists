@@ -44,6 +44,14 @@
             <artifactId>spring-cloud-starter-oauth2</artifactId>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-elasticsearch -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-elasticsearch</artifactId>
+            <version>3.0.8.RELEASE</version>
+        </dependency>
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -59,6 +67,16 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.elasticsearch.client/elasticsearch-rest-high-level-client -->
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-high-level-client</artifactId>
+            <version>6.2.2</version>
+        </dependency>
+
+
+
         <!--<dependency>-->
             <!--<groupId>org.springframework.security</groupId>-->
             <!--<artifactId>spring-security-test</artifactId>-->

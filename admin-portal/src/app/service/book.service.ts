@@ -15,4 +15,11 @@ export class BookService {
         return this.http.post(Url,book, {headers: saveBookHeaders, withCredentials:true})
     
   }
+  getBook(id: number, token:string){
+    const Url = 'http://localhost:8080/books/getBook/'+id;
+    const saveBookHeaders=new HttpHeaders().set('Authorization', 'Bearer ' + token);
+   
+    return this.http.post(Url,id, {headers: saveBookHeaders, withCredentials:true})
+
+  }
 }

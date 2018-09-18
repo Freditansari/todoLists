@@ -27,6 +27,7 @@ export class BookListComponent implements OnInit {
   ngOnInit() {
     
     try{
+      console.log(JSON.parse(sessionStorage.getItem('jsessionid')));
       this.tokenService.isLoggedIn(JSON.parse(sessionStorage.getItem('jsessionid')).access_token).subscribe(res=>{
         this.getBookListService.getBook(JSON.parse(sessionStorage.getItem('jsessionid')).access_token).subscribe(res=>{
           this.bookList =JSON.parse(JSON.stringify(res));
@@ -47,14 +48,11 @@ export class BookListComponent implements OnInit {
 
   
   }
-
-  
-
   //NOTE:how to pass data from angular urls
   onSelect(book:Book) {
     this.selectedBook=book;
     console.log(this.selectedBook);
-    this.router.navigate(['/viewBook', this.selectedBook.id]);
+    this.router.navigate(['/view-book', this.selectedBook.id]);
   }
 
   openDialog(book:Book) {

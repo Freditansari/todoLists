@@ -10,7 +10,7 @@ import {TokenData} from '../models/token-data'
 export class TokenService {
 
   private loggedIn;
-  domainname='http://localhost:8080';
+  domainname='http://206.189.35.230:8080';
   public loggedInUserName;
 
   constructor( private _http: HttpClient) { }
@@ -45,9 +45,11 @@ export class TokenService {
       //   }, err=>{
       //      console.log(err); 
       //   });
-   
-      
+    }
 
+    logout(){
+
+      sessionStorage.setItem('jsessionid', '');
 
     }
 

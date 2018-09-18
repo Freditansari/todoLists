@@ -38,7 +38,6 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         authenticationProvider.setPasswordEncoder(passwordEncoder());
         return authenticationProvider;
     }
-//*********
 
     @Bean
     @Override

@@ -20,6 +20,7 @@ import { BookListComponent } from './components/book-list/book-list.component';
 import { GetBookListService } from './service/get-book-list.service';
 import {MatCardModule} from '@angular/material/card';
 import { ShirtMakerComponent } from './components/shirt-maker/shirt-maker.component';
+import { ViewBookComponent } from './components/view-book/view-book.component';
 
 
 
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'add-book', component: AddBookComponent},
   {path: 'view-books', component: BookListComponent},
+  {path: 'view-book/:id', component: ViewBookComponent},
   {path: 'shirt-maker', component: ShirtMakerComponent},
   {path: '**', component: HomeComponent}
 ];
@@ -39,7 +41,8 @@ const appRoutes: Routes = [
     LoginComponent,
     AddBookComponent,
     BookListComponent,
-    ShirtMakerComponent
+    ShirtMakerComponent,
+    ViewBookComponent
   ],
   imports: [
     FormsModule,

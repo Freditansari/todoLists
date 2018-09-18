@@ -1,0 +1,81 @@
+<form class="submit-form" #myForm="ngForm"  (submit) ="onSubmit()">
+<mat-grid-list cols="2">
+  <mat-grid-tile>
+    <div class="example-form">
+     
+        <mat-form-field>
+          <input matInput [(ngModel)]="selectedBook.title" name="title" placeholder="Title">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [(ngModel)]="selectedBook.author" name="Author"  placeholder="Author">
+        </mat-form-field>
+        <mat-form-field>
+              <input matInput placeholder="Publisher" [(ngModel)]="selectedBook.publisher" name="Publisher" >
+        </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput required minlength="3" type="date" placeholder="Enter published date" #name="ngModel" [(ngModel)]= "selectedBook.publicationDate" name ="publicationDate" />
+              </mat-form-field>
+    
+       
+          <mat-form-field>
+              <input matInput placeholder="Language" [(ngModel)]="selectedBook.language" name="Publisher">
+          </mat-form-field>
+          <mat-form-field>
+                <mat-select [(ngModel)]="selectedBook.category" name="BookCategory" required placeholder="Select Category">
+                        <mat-option value="Management">Management</mat-option>
+                        <mat-option value="Technical">Technical</mat-option>
+                        <mat-option value="Computer Science">Computer Science</mat-option>
+                      </mat-select>
+                    
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="Number of pages" [(ngModel)]="selectedBook.numberOfPages" name="numberOfPages">
+          </mat-form-field>
+          <mat-form-field>
+                <mat-select [(ngModel)]="selectedBook.format" name="bookFormat" placeholder="Select format">
+                        <mat-option value="Paperback">Paperback</mat-option>
+                        <mat-option value="Hardcover">Hardcover</mat-option>
+                      </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="ISBn" [(ngModel)]="selectedBook.isbn" name="isbn">
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="Shipping weight" [(ngModel)]="selectedBook.shippingWeight" name="shippingWeight">
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="List price" [(ngModel)]="selectedBook.listPrice" name="listPrice">
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="our price" [(ngModel)]="selectedBook.ourPrice" name="ourPrice">
+          </mat-form-field>
+          <mat-form-field> 
+              <input matInput placeholder="isAcive?" [(ngModel)]="selectedBook.active" name="active">
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="Description" [(ngModel)]="selectedBook.description" name="Description">
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="in Stock number" [(ngModel)]="selectedBook.inStockNumber" name="inStockNumber">
+          </mat-form-field>
+   
+
+  
+  </div>
+</mat-grid-tile>
+  <mat-grid-tile>     2
+
+
+</mat-grid-tile>
+  <mat-grid-tile>
+      <div class="example-form">  
+          
+         
+        
+      </div>
+
+  </mat-grid-tile>
+  <mat-grid-tile>4</mat-grid-tile>
+</mat-grid-list>
+</form>

@@ -1,11 +1,13 @@
 package com.fredy.projectbackend.Models;
 
+import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Document(indexName = "Book", type="Book", shards=1)
 public class Book implements Serializable {
     private static final long serialVersionUID = 1L;
 

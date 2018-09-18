@@ -1,0 +1,11 @@
+.example-form {
+    min-width: 100%;
+    max-width: 100%;
+    width: 100%;
+    -webkit-column-count: 1; /* Chrome, Safari, Opera */
+    -moz-column-count: 1; /* Firefox */
+    column-count: 1;
+    -webkit-column-gap: 10px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 10px; /* Firefox */
+    column-gap: 10px;
+  }
