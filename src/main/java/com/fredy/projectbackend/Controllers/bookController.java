@@ -1,9 +1,13 @@
 package com.fredy.projectbackend.Controllers;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fredy.projectbackend.Models.Book;
 
 import com.fredy.projectbackend.Repositories.BookRepository;
 import com.fredy.projectbackend.Services.BookService;
+import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +27,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/books")
-public class BookController {
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+
+public class bookController {
     //    private String imageName;
     @Autowired
     BookRepository bookRepo;
@@ -58,6 +64,14 @@ public class BookController {
             e.printStackTrace();
             return new ResponseEntity("upload failed", HttpStatus.BAD_REQUEST);
         }
+
+    }
+
+    @PostMapping(value="/getBook/{id}")
+    @JsonIgnore
+    public Book getBook(@PathVariable("id") Long id){
+        return bookService.findOne(id);
+
 
     }
 
